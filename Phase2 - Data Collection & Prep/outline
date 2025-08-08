@@ -1,0 +1,23 @@
+1. Find data sources:
+Human Mortality Database (www.mortality.org) – CSV downloads by country, year, age.
+"The Human Mortality Database (HMD) is the world's leading scientific data resource on mortality in developed countries. The HMD provides detailed high-quality harmonized mortality and population estimates to researchers, students, journalists, policy analysts, and others interested in human longevity. The HMD follows open data principles."
+Considering U.S. mortality data is often times most accurate and influential, I decided to choose U.S. mortality with room for extensions to other countries' data.
+HMD mortality data from the US Census Bureau can be found in (https://www.mortality.org/Country/Country?cntr=USA).
+Explanatory notes of data used can be found in (https://www.mortality.org/Data/ExplanatoryNotes).
+
+
+2. Clean & organize data:
+Ensure necessary columns are present in data: Year, Age, Gender, Population, Deaths.
+Save CSV for SQL import.
+
+Data provided from the HMD are given in the following formats of age and time:
+  * 1x1 (by age1 and year)
+  * 1x5 (by age1 and 5-year time interval)
+  * 1x10 (by age1 and 10-year time interval)
+  * 5x1 (by 5-year2 age group and year)
+  * 5x5 (by 5-year2 age group and 5-year time interval)
+  * 5x10 (by 5-year2 age group and 10-year time interval)
+
+To gain the most granular, standard for period life tables I decided to choose 1x1 (single year of age x year) as the source of truth for this project.
+If the project calls for a different year period, it is always possible to aggregate it up to any 5-year age or multi-year period.
+However, if I had decided to start coarser (1x5, 5x1, etc), this would throw away detail that cannot be recovered.
