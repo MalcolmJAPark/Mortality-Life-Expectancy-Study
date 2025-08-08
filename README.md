@@ -60,7 +60,7 @@ FROM mortality_data;
 (Can filter by country, gender, or specific years for targeted analysis
 
 ### 2. **Excel Life Table Construction**
-- ** Imported SQL output into Excel to calculate:
+- **Imported SQL output into Excel to calculate:**
 * $q_x$ = Probability of death
 * $p_x = 1 - q_x$ = Probability of survival
 * $l_x$ = Survivors at age x
