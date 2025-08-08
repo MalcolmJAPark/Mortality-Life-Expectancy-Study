@@ -1,0 +1,6 @@
+Objective: Analyze mortality data, build life tables, and visualize life expectancy trends.
+
+Key deliverables:
+* SQL database storing mortality data.
+* Excel workbook with life tables, survival probabilities, and visualizations.
+* A short write-up (1–2 pages) explaining findings.
