@@ -1,6 +1,7 @@
 1. Find data sources:
 Human Mortality Database (www.mortality.org) – CSV downloads by country, year, age.
-"The Human Mortality Database (HMD) is the world's leading scientific data resource on mortality in developed countries. The HMD provides detailed high-quality harmonized mortality and population estimates to researchers, students, journalists, policy analysts, and others interested in human longevity. The HMD follows open data principles."
+"The Human Mortality Database (HMD) is the world's leading scientific data resource on mortality in developed countries. The HMD provides detailed high-quality harmonized mortality 
+and population estimates to researchers, students, journalists, policy analysts, and others interested in human longevity. The HMD follows open data principles."
 Considering U.S. mortality data is often times most accurate and influential, I decided to choose U.S. mortality with room for extensions to other countries' data.
 HMD mortality data from the US Census Bureau can be found in (https://www.mortality.org/Country/Country?cntr=USA).
 Explanatory notes of data used can be found in (https://www.mortality.org/Data/ExplanatoryNotes).
@@ -22,4 +23,8 @@ To gain the most granular, standard for period life tables I decided to choose 1
 If the project calls for a different year period, it is always possible to aggregate it up to any 5-year age or multi-year period.
 However, if I had decided to start coarser (1x5, 5x1, etc), this would throw away detail that cannot be recovered.
 
-Based on InputDB documentations available through the HMD, this project requires XXXdeath.txt (in this case USAdeath.txt) and XXXpop.txt (in this case USApop.txt) and the relevant fields
+Based on InputDB documentations available through the HMD, this project requires XXXdeath.txt (in this case USAdeath.txt) and XXXpop.txt (in this case USApop.txt) and the relevant 
+fields (Year, Age, Gender, Population, and Deaths).
+Then for cleaning purposes, must clean "." as missing and drop non-numerical ages like TOT/UNK.
+Since this project focuses on 1x1 records (YearInterval = 1 & AgeInterval = 1), must aggregate deaths accross Lexis shapes in those specific fields. Then, join by (Year, Age, Sex) to 
+produce Year, Age, Gender, Population, Deaths. 
