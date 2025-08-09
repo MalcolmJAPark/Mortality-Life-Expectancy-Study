@@ -21,3 +21,5 @@ Data provided from the HMD are given in the following formats of age and time:
 To gain the most granular, standard for period life tables I decided to choose 1x1 (single year of age x year) as the source of truth for this project.
 If the project calls for a different year period, it is always possible to aggregate it up to any 5-year age or multi-year period.
 However, if I had decided to start coarser (1x5, 5x1, etc), this would throw away detail that cannot be recovered.
+
+Based on InputDB documentations available through the HMD, this project requires XXXdeath.txt (in this case USAdeath.txt) and XXXpop.txt (in this case USApop.txt) and the relevant fields
