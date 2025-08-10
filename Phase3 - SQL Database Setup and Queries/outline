@@ -1,0 +1,28 @@
+1. Create database and tables:
+```sql
+CREATE TABLE mortality_data (
+    year INT,
+    age INT,
+    gender VARCHAR(10),
+    population INT,
+    deaths INT
+);
+```
+
+2. Import CSV data from step 2 into SQL with SQLite. From this, write SQL queries for Mortality rate, Average life expectancy over decades, Gender-based mortality comparisons, 
+and Trends over time for specific age groups.
+
+3. Provide a cleaned dataset with mortality rates to export for Excel.
+
+Ready-to-run Python script, build_sqlite_and_queries.py
+The following file creates an SQLite database from the cleaned usa_year_age_gender.csv, then runs analytical SQL queries to calculate:
+* Mortality rates by year, age, and gender
+* Average life expectancy over decades
+* Gender-based mortality comparisons
+* Trends over time for specific age groups
+
+The script imports the CSV into SQLite, creates a table with columns Year, Age, Sex, Population, and Deaths, computes mortality rates (Deaths / Population), and writes results back to a cleaned dataset for Excel export.
+It uses standard Python libraries (sqlite3, pandas) for database creation, querying, and output.
+Assumptions: Mortality rates are computed per 1,000 population; decades are defined by the starting year (e.g., 1990s = 1990–1999); life expectancy is estimated based on aggregated survival data.
+
+Example usage: python3 build_sqlite_and_queries.py --input ./data/usa_year_age_gender.csv --db ./data/mortality.db --out ./data/usa_with_mortality_rates.csv
