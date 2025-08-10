@@ -1,0 +1,39 @@
+Report on Gender Differences in Life Expectancy and Mortality Patterns
+1. Life Expectancy Trends (e0_by_decade.csv)
+  Analysis of average life expectancy at birth (avg_e0) by decade shows that females consistently outlive males in every recorded period from the 1930s to 2020s.
+In the early decades (1930–1950), the gap was relatively small (e.g., only 0.059 years in 1930, 0.603 years in 1950). From the 1960s onward, the difference widened sharply, 
+peaking in the 1980s at 7.088 years. Since then, the gap has narrowed somewhat, falling to around 5.43 years in 2020. This pattern reflects improvements in male longevity over 
+recent decades, but females still maintain a notable advantage.
+
+Decade	Female e₀	Male e₀	Gap (Female–Male)
+1930	4.758	4.699	0.059
+1960	72.764	66.627	6.137
+1980	78.600	71.512	7.088
+2020	80.611	75.181	5.430
+
+2. Age-Specific Mortality Differences (gender_mortality_comparison.csv)
+  The mx_diff values (male mortality rate minus female mortality rate) reveal the gender mortality gap is most pronounced at very old ages. The top 10 largest average differences occur 
+from ages 87 to 96, with male mortality rates exceeding female rates by about 0.038–0.046 (i.e., 3.8–4.6 percentage points). This indicates that although both sexes experience high 
+mortality at advanced ages, men’s risk remains significantly higher.
+At younger ages, the mortality difference exists but is smaller, except in infancy (not shown in top 10), where male infants also historically had higher mortality.
+
+Age	Avg Male–Female Mortality Difference
+91	0.0464
+92	0.0454
+96	0.0449
+95	0.0445
+93	0.0443
+90	0.0434
+89	0.0410
+94	0.0408
+88	0.0407
+87	0.0386
+
+3. Summary
+Overall: Women have higher life expectancy in every decade, with the gap peaking in the 1980s and somewhat narrowing in recent decades.
+By age: The gender mortality gap is largest at advanced ages (87+), though male disadvantage is also evident in infancy.
+
+Implications: Persistent male–female mortality differences may be linked to a combination of biological, behavioral, and social factors, and they have important implications 
+for health policy, retirement planning, and actuarial forecasting.
+
+
