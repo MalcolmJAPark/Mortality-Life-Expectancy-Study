@@ -1,81 +1,92 @@
-# Mortality-Life-Expectancy-Study
+# Mortality & Life Expectancy Study
 
 ## 📌 Project Overview
-This project analyzes mortality data to build **life tables**, calculate **life expectancy**, and visualize mortality trends over time.  
-It showcases skills in **SQL** for data extraction and transformation, and **Microsoft Excel** for actuarial modeling and visualization.
-
-**Actuarial relevance:**  
-Life tables and mortality analysis are fundamental to actuarial science, forming the basis for **insurance pricing**, **pension funding**, and **risk assessment**.
+This project analyzes U.S. mortality data from the Human Mortality Database (HMD), builds actuarial life tables, and visualizes life expectancy trends.  
+It demonstrates **SQL**, **Microsoft Excel**, and **data interpretation** skills that are directly relevant to actuarial science.
 
 ---
 
 ## 🎯 Objectives
-- Store and query large mortality datasets using SQL.
-- Calculate mortality rates (\( q_x \)), survival probabilities (\( p_x \)), and life expectancies (\( e_x \)).
-- Build complete life tables in Excel.
-- Visualize mortality trends and interpret demographic changes.
-- Connect insights to actuarial applications.
+1. Store and process historical mortality data in a structured **SQL database**.
+2. Calculate key actuarial metrics:
+   - Mortality rates (mₓ)
+   - Probability of death (qₓ)
+   - Survivorship (lₓ)
+   - Life expectancy (eₓ)
+3. Build complete life tables in Excel.
+4. Visualize mortality trends over time and across age groups.
+5. Interpret findings in an actuarial and policy context.
+
+---
 
 ## 📂 Project Structure
-mortality-life-expectancy-study/
-│
-├── data/ # Raw and cleaned datasets (CSV format)
-├── sql/ # SQL scripts for creating tables and querying data
-├── excel/ # Excel workbooks with life tables, formulas, and charts
-├── README.md # Project documentation (this file)
-└── report/ # Summary report with findings and actuarial implications
+
+### **Phase 1 – Define Project Scope**
+- Established project goals, deliverables, and methodology.
+
+### **Phase 2 – Data Collection & Preparation**
+- Source: **Human Mortality Database (HMD)** USA InputDB files.
+- Extracted **Year**, **Age**, **Gender**, **Population**, **Deaths** from:
+  - `USAdeath.txt`
+  - `USApop.txt`
+- Cleaned data:
+  - Kept `AgeInterval=1` and `YearInterval=1`
+  - Removed `UNK` and `TOT`
+  - Aggregated across Lexis shapes
+  - Selected best population record per year–age–gender using Type priority and earliest date.
+- Script: `build_usa_year_age_gender_pop_deaths.py`
+
+### **Phase 3 – SQL Database Setup and Queries**
+- Imported cleaned CSV into **SQLite**.
+- Created tables and views for:
+  - Mortality rate (`mx`)
+  - Estimated qₓ (`1 - exp(-mₓ)`)
+  - Life expectancy at birth (`e₀`) by year/decade
+  - Gender mortality comparisons
+  - Age-group mortality trends
+- Output CSVs:
+  - `mortality_rates.csv`
+  - `e0_by_decade.csv`
+  - `gender_mortality_comparison.csv`
+  - `agegroup_trends.csv`
+- Script: `build_sqlite_and_queries.py`
+
+### **Phase 4 – Excel Life Table Construction**
+- Imported SQL outputs into Excel.
+- Built dynamic life tables with columns:
+  - Age, qₓ, pₓ, lₓ, dₓ, Lₓ, Tₓ, eₓ
+- Added automated charts:
+  - Mortality curve (Age vs. qₓ)
+  - Survival curve (Age vs. lₓ)
+  - Life expectancy trends (e₀ over time)
+- Script: `build_excel_from_sql_outputs.py`
+- File: `Mortality_LifeTables.xlsx`
+
+### **Phase 5 – Actuarial Interpretation**
+- Insights generated from processed datasets:
+  1. **Gender differences in life expectancy** (`e0_by_decade.csv`, `gender_mortality_comparison.csv`)
+  2. **Mortality trends for specific age groups** (`agegroup_trends.csv`)
+  3. **Implications for insurance pricing, pension liabilities, and healthcare planning** (`e0_by_decade.csv`, `mortality_rates.csv`, `agegroup_trends.csv`)
+  4. Additional insights:
+     - Longevity risk trends
+     - Survivorship curve shifts
+     - Mortality improvement rates
 
 ---
 
-## 🗄 Data Source
-The data is obtained from **[Human Mortality Database](https://www.mortality.org/)** (or other public mortality datasets such as CDC WONDER or WHO Mortality Database).  
-Columns used:
-- `Year`
-- `Age`
-- `Gender`
-- `Population`
-- `Deaths`
+## 🛠 Tools & Skills Used
+- **SQL / SQLite** – data storage, querying, aggregation.
+- **Python** – data cleaning, transformation, and automation scripts.
+- **Microsoft Excel** – life table construction, formulas, and charting.
+- **Actuarial Methods** – mortality and life expectancy calculations, longevity analysis.
 
 ---
 
-## ⚙️ Methodology
-
-### 1. **SQL Data Processing**
-- **Create mortality table:**
-```sql
-CREATE TABLE mortality_data (
-    year INT,
-    age INT,
-    gender VARCHAR(10),
-    population INT,
-    deaths INT
-);
-```
-To calculate mortality rates:
-```
-SELECT year, age, gender,
-       deaths * 1.0 / population AS mortality_rate
-FROM mortality_data;
-```
-(Can filter by country, gender, or specific years for targeted analysis
-
-### 2. **Excel Life Table Construction**
-- **Imported SQL output into Excel to calculate:**
-* $q_x$ = Probability of death
-* $p_x = 1 - q_x$ = Probability of survival
-* $l_x$ = Survivors at age x
-* $d_x = l_x - l_{x+1}$ = Deaths at age x
-* $L_x$ = Person-years lived between ages x and x+1
-* $T_x$ = Total person-years remaining
-* $e_x = T_x / l_x$ = Life expectancy
-
-Example formula use in Excel:
-```excel
-=1 - (Deaths / Population) // p_x
-```
-
-### 3. **Visualization**
-* Mortality curve: Age vs. $q_x$
-* Survival curve: Age vc. $l_x$
-* Life expectancy trend: Year vs. $e_0$ (life expectancy at birth)
-
+## 📊 Key Files
+- **Phase 2**: `usa_year_age_gender.csv`
+- **Phase 3** Outputs:
+  - `mortality_rates.csv`
+  - `e0_by_decade.csv`
+  - `gender_mortality_comparison.csv`
+  - `agegroup_trends.csv`
+- **Phase 4**: `Mortality_LifeTables.xlsx`
