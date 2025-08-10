@@ -27,5 +27,7 @@ Ready to run python script, build_usa_age_gender_pop_deaths.py
 The following file reads USAdeath.txt and USApop.txt, keeps single-year age (AgeInterval=1) and single-year period (YearInterval=1), drops UNK/TOT, 
 aggregates deaths across Lexis shapes, and joins to population by Year–Age–Sex. 
 Column names and formats follow the HMD InputDB spec for deaths and population files.
+Assumptions: this script keeps AgeInterval = 1 and picks one record per age-year-sex using a sensible Type priority and earliest Month/Day (typically jan 1). 
+Column meanings (Day/Month/Year/Type) and the age definition come from the population spec.
 
 Example usage: python3 build_usa_year_age_gender_pop_deaths.py --input ./InputDB --out ./data/usa_year_age_gender.csv
