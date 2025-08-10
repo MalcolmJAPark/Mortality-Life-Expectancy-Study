@@ -1,0 +1,32 @@
+1. Import SQL output into Excel (via CSV export)
+
+2. Build a life table:
+* Columns: Age, q_x (probability of death), p_x (probability of survival), l_x (survivors), d_x (deaths), L_x, T_x, e_x (life expectancy)
+* Formula example for p_x: p_x = 1 - q_x
+* Formula example for e_x: e_x = T_x / l_x
+
+3. Create charts:
+* Mortality curve (age vs. q_x)
+* Survival curve (age vs. l_x)
+* Life expectancy trends over years
+
+Ready-to-run Python script, build_excel_from_sql_outputs.py
+The following file reads SQL query outputs generated from the SQLite mortality database and exports them to Excel via CSV for further analysis. 
+It then constructs a complete life table with the following columns:
+* Age – exact age in years
+* q_x – probability of death between age x and x+1 (Deaths / Population)
+* p_x – probability of survival (1 - qₓ)
+* l_x – number of survivors at exact age x
+* d_x – number of deaths between age x and x+1 (lₓ × qₓ)
+* L_x – person-years lived between age x and x+1
+* T_x – total person-years lived above age x
+* e_x – life expectancy at exact age x (Tₓ / lₓ)
+
+The script also produces three charts:
+* Mortality curve (Age vs. q_x)
+* Survival curve (Age vs. l_x)
+* Life expectancy trends over time
+The Excel file contains separate sheets for raw SQL outputs, life table calculations, and charts.
+Assumptions: The life table is computed for a given year or aggregated period; survivorship starts from 100,000 at birth; mortality rates are assumed constant within each age interval.
+
+Example usage: python3 build_excel_from_sql_outputs.py --db ./data/mortality.db --year 2010 --out ./data/mortality_life_table.xlsx
