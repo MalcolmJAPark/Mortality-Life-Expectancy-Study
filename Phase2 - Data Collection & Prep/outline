@@ -31,3 +31,19 @@ Assumptions: this script keeps AgeInterval = 1 and picks one record per age-year
 Column meanings (Day/Month/Year/Type) and the age definition come from the population spec.
 
 Example usage: python3 build_usa_year_age_gender_pop_deaths.py --input ./InputDB --out ./data/usa_year_age_gender.csv
+
+
+3. SQL Database Setup and Queries
+Create database and tables:
+```sql
+CREATE TABLE mortality_data (
+    year INT,
+    age INT,
+    gender VARCHAR(10),
+    population INT,
+    deaths INT
+);
+```
+Then, import CSV data from step 2 into SQL with SQLite. From this, write SQL queries for Mortality rate, Average life expectancy over decades, Gender-based mortality comparisons, 
+and Trends over time for specific age groups.
+Provide a cleaned dataset with mortality rates to export for Excel.
