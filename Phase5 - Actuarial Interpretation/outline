@@ -2,7 +2,6 @@ Based on csv files and xlsx files created, report:
 * Which gender has higher life expectancy, and how has the gap changed over time.
 * Changes in mortality for specific age groups (e.g., infant mortality, elderly).
 * Implications for insurance pricing, pension liabilities, and healthcare planning.
-* Cohort vs. Period Analysis (compare period life tables (single year) with cohort estimates to see whether improvements are due to medical advances or environment).
 * Seasonality (using USAbirthmonth.txt and monthly death counts, look at seasonal mortality spikes e.g., flue in winter, heatwaves in summer)
 * Retirement age adequacy (compare survival probabilities at retirement ages e.g., 62, 65, 67 now vs. 50 years ago - informs Social Security and pension sustainability).
 * Insurance underwriting refinement (derive select and ultimate mortality tables by re-basing survivorship to different entry ages - useful for term life and annuity products).
