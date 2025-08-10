@@ -1,0 +1,16 @@
+1. Life Expectancy Trends (e0_by_decade.csv)
+Life expectancy at birth (e_0) has risen dramatically from below 15 years in the early 20th century to nearly 80 years today.
+* Insurance pricing: Longer e_0 reduces term life insurance premiums for younger ages, as the probability of death during the policy term declines.
+* Pension liabilities & annuities: Higher e_0 increases the duration of pension payouts and annuity obligations, raising required reserves.
+* Longevity risk: Persistent increases in e_0 amplify uncertainty in long-term obligations.
+
+2. Mortality Rates by Age and Year (mortality_rates.csv)
+Mortality rates (MortalityRate or mx) and death probabilities (qx) have generally declined for most age ranges.
+* Actuarial modeling: These are core inputs for building select (recently underwritten) and ultimate (long-term) mortality tables.
+* Risk management: Declining mortality at working ages reduces life insurance claim frequencies but increases retirement-age liabilities.
+* Healthcare planning: Lower mortality in middle age implies a growing elderly population needing chronic care.
+
+3. Age Group Trends (agegroup_trends.csv)
+Analysis of mortality for ages 65+ shows gradual improvement over decades, though the rate of decline is slower than at younger ages.
+* Pensions: Even small mortality improvements at older ages significantly impact liabilities.
+* Healthcare systems: Longer survival in elderly age bands shifts demand toward long-term care, geriatric services, and end-of-life care planning.
