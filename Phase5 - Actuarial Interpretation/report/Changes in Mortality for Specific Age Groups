@@ -1,0 +1,16 @@
+1. Infant Mortality (AgeGroupStart = 0)
+In the 1930s, infant mortality averaged around 1.6–1.8% annually, but over the decades, rates steadily declined (presumably due to improvements in healthcare, nutrition, and sanitation).
+By the 2000s–2020s, infant mortality fell to below 0.5%, representing one of the most dramatic long-term mortality improvements in the dataset.
+
+2. Elderly Mortality (AgeGroupStart = 65, 70, 75, 80, 85, 90)
+Mortality rates for elderly groups are much higher than for infants, increasing sharply with age.
+For example, in 1959:
+* Age 65 group mortality ≈ 3.2%
+* Age 80 group mortality ≈ 12.1%
+While overall elderly mortality has declined slightly over time, the drop is less noticeable than for infant mortality, and rates remain high at advanced ages due to natural 
+aging limits.
+
+3. Overall Patterns
+* Infant mortality shows a steep, sustained decline across decades.
+* Elderly mortality shows a modest decline but still increases exponentially with age.
+* These trends reflect medical progress and demographic aging: more people are surviving childhood, but advanced-age mortality remains a major driver of life expectancy limits.
