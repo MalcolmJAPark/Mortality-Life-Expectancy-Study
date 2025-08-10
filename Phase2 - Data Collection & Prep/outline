@@ -23,8 +23,9 @@ To gain the most granular, standard for period life tables I decided to choose 1
 If the project calls for a different year period, it is always possible to aggregate it up to any 5-year age or multi-year period.
 However, if I had decided to start coarser (1x5, 5x1, etc), this would throw away detail that cannot be recovered.
 
-Based on InputDB documentations available through the HMD, this project requires XXXdeath.txt (in this case USAdeath.txt) and XXXpop.txt (in this case USApop.txt) and the relevant 
-fields (Year, Age, Gender, Population, and Deaths).
-Then for cleaning purposes, must clean "." as missing and drop non-numerical ages like TOT/UNK.
-Since this project focuses on 1x1 records (YearInterval = 1 & AgeInterval = 1), must aggregate deaths accross Lexis shapes in those specific fields. Then, join by (Year, Age, Sex) to 
-produce Year, Age, Gender, Population, Deaths. 
+Ready to run python script, build_usa_age_gender_pop_deaths.py
+The following file reads USAdeath.txt and USApop.txt, keeps single-year age (AgeInterval=1) and single-year period (YearInterval=1), drops UNK/TOT, 
+aggregates deaths across Lexis shapes, and joins to population by Year–Age–Sex. 
+Column names and formats follow the HMD InputDB spec for deaths and population files.
+
+Example usage: python3 build_usa_year_age_gender_pop_deaths.py --input ./InputDB --out ./data/usa_year_age_gender.csv
